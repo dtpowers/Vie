@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/dtpowers/Vie/issues"
   },
-  "homepage": "https://github.com/dtpowers/Vie#readme"
+  "homepage": "https://github.com/dtpowers/Vie#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "path": "^0.12.7"
+  }
 }
