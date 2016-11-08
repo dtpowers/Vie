@@ -15,27 +15,20 @@ exports.init = function(app) {
   // The CRUD Delete path is left for you to define
 }
 
-function logIn(username, password) {
+/**
+test ajax call to put data in db
+$.ajax({
+  url: "/api/users/",
+  data: tempUser,
+  type: 'PUT',
+  success: function(result) {
 
-  $.ajax({
-    url: "/users/users/?username=" + username + "&password=" + password,
-    type: 'GET',
-    success: function(result) {
-      if (result[0]) {
-        localStorage.username = result[0].username;
-        localStorage.password = result[0].password;
-        console.log(result[0]);
-        localStorage.cred = result[0].cred;
-        $(".form").hide();
-        relog();
-      } else {
-        alert("That username or password is incorrect");
-      }
+    console.log(result);
 
-    }
-  });
+  }
+});
 
-}
+*/
 
 
 /********** CRUD Create *******************************************************

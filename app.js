@@ -7,6 +7,9 @@ var app = express();
 
 // Define how to log events
 app.use(morgan('tiny'));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 
 // Load all routes in the routes directory
