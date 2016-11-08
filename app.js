@@ -1,7 +1,8 @@
 var express = require('express');
 var fs = require('fs');
-path = require('path');
+var path = require('path');
 var morgan = require('morgan');
+var bodyParser = require('body-parser');
 var app = express();
 
 // Define how to log events
@@ -16,11 +17,6 @@ fs.readdirSync('./routes').forEach(function(file) {
     require('./routes/' + file).init(app);
   }
 });
-
-app.get('/', function(req, res) {
-  res.send('Hello World!');
-});
-
 
 
 app.listen(3000, function() {

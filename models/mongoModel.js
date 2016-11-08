@@ -13,13 +13,6 @@ MongoClient.connect("mongodb://localhost:27017/vie", function(err, db) {
 
 
 
-/*
- * In the methods below, notice the use of a callback argument,
- * how that callback function is called, and the argument it is given.
- * Why do we need to be passed a callback function? Why can't the create, 
- * retrieve, and update functinons just return the data directly?
- * (This is what we discussed in class.)
- */
 
 /********** CRUD Create -> Mongo insert ***************************************
  * @param {string} collection - The collection within the database

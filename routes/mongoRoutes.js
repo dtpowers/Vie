@@ -4,17 +4,38 @@ var mongoModel = require("../models/mongoModel.js")
 // Define the routes for this controller
 exports.init = function(app) {
 
-  app.get('/users/:collection', doRetrieve); // CRUD Retrieve
+  app.get('/api/:collection', doRetrieve); // CRUD Retrieve
 
-  app.put('/users/:collection', doCreate); // CRUD Create
+  app.put('/api/:collection', doCreate); // CRUD Create
 
-  app.post('/users/:collection', doUpdate); // CRUD Update
+  app.post('/api/:collection', doUpdate); // CRUD Update
 
-  app.delete('/users/:collection', doDelete); //CRUD Delete
+  app.delete('/api/:collection', doDelete); //CRUD Delete
 
   // The CRUD Delete path is left for you to define
 }
 
+function logIn(username, password) {
+
+  $.ajax({
+    url: "/users/users/?username=" + username + "&password=" + password,
+    type: 'GET',
+    success: function(result) {
+      if (result[0]) {
+        localStorage.username = result[0].username;
+        localStorage.password = result[0].password;
+        console.log(result[0]);
+        localStorage.cred = result[0].cred;
+        $(".form").hide();
+        relog();
+      } else {
+        alert("That username or password is incorrect");
+      }
+
+    }
+  });
+
+}
 
 
 /********** CRUD Create *******************************************************
