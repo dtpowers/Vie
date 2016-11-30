@@ -23,6 +23,14 @@ body{
 	color: #f0cb72;
 }
 
+.menu-elements:active{
+	color: white;
+}
+
+.menu-elements:focus{
+	color: white;
+}
+
 .welcome{
 	font-family: 'Varela Round', sans-serif;
 	font-size: 50px;
@@ -70,4 +78,9 @@ body{
 hr{
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
+}
+
+.busy{
+	color: red;
+	text-align: right;
 }
