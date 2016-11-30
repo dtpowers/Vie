@@ -57,7 +57,7 @@ body{
 	padding-top: 30px;
 }
 
-.recommended{
+.cards{
 	background: white;
 	border-radius: 10px;
 }
@@ -83,4 +83,8 @@ hr{
 .busy{
 	color: red;
 	text-align: right;
+}
+
+.adding{
+	padding: 5px;
 }
