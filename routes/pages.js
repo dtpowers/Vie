@@ -2,7 +2,7 @@
 
 exports.init = function(app) {
   app.get('/', function(req, res) {
-    res.send("home");
+    res.sendfile("views/index.html");
   });
 
   app.post('/addCommitment', function(req, res) {
