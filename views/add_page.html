@@ -100,7 +100,11 @@
 							  <tbody>
 							    <tr>
 							      <td>Content Goes Here</td>
-							      <td>15-112: Fundamentals of Programming</td>
+							      <td>
+							      	<a data-open="secondModal">
+							      		15-112: Fundamentals of Programming
+							      	</a>
+							      </td>
 							      <td>Class</td>
 							      <td>15 hours/week</td>
 							      <td>Busy</td>
@@ -115,6 +119,27 @@
 						</div>
 
 					</div>
+
+
+					<div class="reveal large" id="secondModal" data-reveal>
+					  <h2 class="secondary-text modal-title">15-112: Fundamentals of Programming</h2>
+					  <b class="color-code">
+					  	15 hours/week (Busy) | 12 Units
+					  </b>
+					  <p class="modal-desc">	A technical introduction to the fundamentals of programming with an emphasis on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Starting from first principles,we will cover a large subset of the Python programming language, including its standard libraries and programming paradigms. We will also target numerous deployment scenarios, including standalone programs, shell scripts, and web-based applications.</p>
+					  <div class="row">
+					  	<div class="small-9 columns"></div>
+					  	<div class="small-3 columns">
+					  		<a href="#" class="button" data-open="listingModal">Back</a>
+					  		<a href="add_page.html" class="button submit-button">Add to Schedule</a>
+					  	</div>
+					  </div>
+					  <button class="close-button" data-close aria-label="Close reveal" type="button">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+
+
 				</div>
 
 				
@@ -140,7 +165,79 @@
 				<!-- Button -->
 
 				<div class="adding">
-					<button type="button" class="small expanded hollow button">+ Add Extracurricular</button>
+					<button type="button" class="small expanded hollow button" data-open="listingModalExtra">+ Add Extracurricular</button>
+
+					<div id="listingModalExtra" class="reveal large" data-reveal>
+						<div class="row">
+							<div class="modal-title">
+							  <h2 id="modalTitle" class="subtitle-modal">Add Course</h2>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="small-8 columns">
+							</div>
+								<div class="small-4 columns">
+								<ul class="menu addbar">
+						        	<li class="has-form"><input type="search" placeholder="Search courses"></li>
+						        	<li><a href="add_page.html" class="button">Add</a></li>
+					     		</ul>
+					     	</div>
+						</div>
+						<div class="row table-add">
+							<table>
+							  <thead>
+							    <tr>
+							    	<th width="150"></th>	
+							      	<th>Name</th>
+							      	<th width="200">Type</th>
+							      	<th width="150">Hours</th>
+							      	<th width="150">Status</th>
+							      	<th width="150"></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>Content Goes Here</td>
+							      <td>
+							      	<a data-open="extraModal">
+							      		15-112: Fundamentals of Programming
+							      	</a>
+							      </td>
+							      <td>Class</td>
+							      <td>15 hours/week</td>
+							      <td>Busy</td>
+							      <td>Content Goes Here</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+
+						<div class="row">
+							
+						</div>
+
+					</div>
+
+
+					<div class="reveal large" id="extraModal" data-reveal>
+					  <h2 class="secondary-text modal-title">15-112: Fundamentals of Programming</h2>
+					  <b class="color-code">
+					  	15 hours/week (Busy) | 12 Units
+					  </b>
+					  <p class="modal-desc">	A technical introduction to the fundamentals of programming with an emphasis on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Starting from first principles,we will cover a large subset of the Python programming language, including its standard libraries and programming paradigms. We will also target numerous deployment scenarios, including standalone programs, shell scripts, and web-based applications.</p>
+					  <div class="row">
+					  	<div class="small-9 columns"></div>
+					  	<div class="small-3 columns">
+					  		<a href="#" class="button" data-open="listingModal">Back</a>
+					  		<a href="add_page.html" class="button submit-button">Add to Schedule</a>
+					  	</div>
+					  </div>
+					  <button class="close-button" data-close aria-label="Close reveal" type="button">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -170,6 +267,24 @@
 					<b class="secondary-text">
 						Recommended Courses
 					</b>
+				</div>
+
+				<div class="small-6 columns">
+					<b>
+						15-112
+					</b>
+				</div>
+
+				<div class="small-3 columns">
+					<p class="color-code">
+						Busy
+					</p>
+				</div>
+
+				<div class="small-3 columns">
+					<a href="add_page.html">
+						Add
+					</a>
 				</div>
 
 			</div>
