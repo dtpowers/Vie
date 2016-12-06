@@ -45,6 +45,17 @@ body{
 	font-size: 20px;
 }
 
+.subtitle-modal{
+	font-size: 20px;
+	text-align: center;
+	font-family: 'Varela Round', sans-serif;
+	text-align: center;
+}
+
+.modal-search{
+	padding-right: 10px;
+}
+
 .has-form{
 	width: 40rem;
 }
@@ -107,4 +118,8 @@ hr{
 .visualizations{
 	padding-bottom: 40%;
 	margin-bottom: 10px;
+}
+
+.tab-text{
+	color: black;
 }
