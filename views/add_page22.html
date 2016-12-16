@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vie Add Page</title>
     <link rel="stylesheet" href="../public/css/foundation.css">
-    <link rel="stylesheet" href="../public/css/foundation-icons.css">
     <link rel="stylesheet" href="../public/css/app.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -15,7 +14,7 @@
   </head>
 
 	<style>
-	#viz{
+		#viz{
       width:300px; 
       height:200px;
     }
@@ -26,7 +25,7 @@
   	<!-- navigation bar -->
   	<div class="top-bar">
 	  <div class="top-bar-left">
-	    <ul class=" menu">
+	    <ul class="dropdown menu" data-dropdown-menu>
 	      <li class="menu-text">
 	      	<a href="homepage.html">
 	      		<img src="../public/images/vie_logo_white.png" alt="Vie Logo">
@@ -43,31 +42,8 @@
 	      <li><input type="search" placeholder="Search"></li>
 	      <li><button type="button" class="button">Search</button></li>
 	      <li>
-	      	<a class="menu-elements loginbtn" onclick="drop()" href="#">&nbsp&nbsp<i class="fi-unlock"></i>&nbsp<b>Login</b> </a>
+	      	<a class="menu-elements" href="#">Login/Signup</a>
 	      </li>
-	      <div class="dropdown">
-            <div id="myDropdown" class="dropdown-content">
-              <ul id="login-dp">
-                <form class="form">
-                  <div class="form-group">
-                    <input type="email" style="display: block; margin: auto;" placeholder="andrew ID"/>
-                  </div>
-                  <div class="form-group">
-                    <input type="password" style="display: block; margin: auto;" placeholder="password"/>
-                  </div>
-                  <div class="social-buttons">
-                    or login via <br>
-                    <a class="button button-fb" style="font-family:Lucida Grande;"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
-                    <a class="button button-goog" style="font-family:Lucida Grande; font-weight:bold;"><i class="fa fa-fw fa-google-plus"></i> &nbspGoogle </a>
-                  </div>
-                </form>
-                <div class="bottom text-center">
-                  New here ? <a href="#"><b>Join Us</b></a>
-                </div>
-                <a type="submit" class="button small-12" style="float:right; margin-bottom:14px;" href="dashboard_page_new.html">Sign in!</a>
-              </ul>
-            </div>
-          </div>
 	    </ul>
 	  </div>
 	</div>
@@ -91,22 +67,23 @@
 					</b>
 					<hr>
 				</div>
-
-				<!-- <div id="container" style="height:300px;"></div> -->
 				<!-- New added courses -->
 				<div class="added">
 					<p class="added_text">
+						15-112:Fundamentals of Programming
+					</p>
+
+				</div>
+				<div class="added">
+					<p class="added_text">
 						54-191 Acting for Non-Majors
-						<a href="add_page.html">
-							<i class="fi-x cross" style="float:right;"></i>
-						</a>
 					</p> 
 				</div>
 
 				<!-- Button -->
 
 				<div class="adding">
-					<a href="#" class="small expanded hollow button load" data-open="listingModal">+ Add Course</a>
+					<a href="#" class="small expanded hollow button" data-open="listingModal">+ Add Course</a>
 
 					<div id="listingModal" class="reveal large" data-reveal>
 						<div class="row">
@@ -121,7 +98,7 @@
 								<div class="small-4 columns">
 								<ul class="menu addbar">
 						        	<li class="has-form"><input type="search" placeholder="Search courses"></li>
-						        	<li><a href="add_page_6.html" class="button">Add</a></li>
+						        	<li><a href="add_page.html" class="button">Add</a></li>
 					     		</ul>
 					     	</div>
 						</div>
@@ -129,56 +106,26 @@
 							<table>
 							  <thead>
 							    <tr>
-							    	<th width="50"></th>	
+							    	<th width="150"></th>	
 							      	<th>Name</th>
-							      	<th class="centralize" width="150">Distributions of Student data</th>
-							      	<th class="centralize" width="150">Est. Hours</th>
-							      	<th class="centralize" width="150">Status</th>
+							      	<th width="200">Type</th>
+							      	<th width="150">Hours</th>
+							      	<th width="150">Status</th>
 							      	<th width="150"></th>
 							    </tr>
 							  </thead>
 							  <tbody>
 							    <tr>
-							      <td></td>
-							      <td>
-							      	<a data-open="secondModal">
-							      		67-364: Practical Data Science
-							      	</a>
-							      </td>
-							      <td width="150">
-							      	<div id="container1" style="height:250px;"></div>
-										</td>
-							      <td class="medium">9 hours/week</td>
-							      <td class="medium" style="text-align:center;">Medium</td>
-							      <td><a href="add_page.html" class="button">Add</a></td>
-							    </tr>
-							    <tr>
-							      <td></td>
+							      <td>Content Goes Here</td>
 							      <td>
 							      	<a data-open="secondModal">
 							      		15-112: Fundamentals of Programming
 							      	</a>
 							      </td>
-							      <td>
-							      	<div id="container2" style="height:250px;"></div>
-										</td>
-							      <td class="busy">15 hours/week</td>
-							      <td class="busy" style="text-align:center;">Busy</td>
-							      <td><a href="add_page.html" class="button">Add</a></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td>
-							      	<a data-open="secondModal">
-							      		67-327 Web Application Security
-							      	</a>
-							      </td>
-							      <td>
-							      	<div id="container3" style="height:250px;"></div>
-										</td>
-							      <td class="light">7 hours/week</td>
-							      <td class="light" style="text-align:center;">Light</td>
-							      <td><a href="add_page.html" class="button">Add</a></td>
+							      <td>Class</td>
+							      <td>15 hours/week</td>
+							      <td>Busy</td>
+							      <td>Content Goes Here</td>
 							    </tr>
 							  </tbody>
 							</table>
@@ -187,7 +134,6 @@
 
 
 					<div class="reveal large" id="secondModal" data-reveal>
-						<div class="padpadpad"></div>
 					  <h2 class="secondary-text modal-title">15-112: Fundamentals of Programming</h2>
 					  <b class="color-code">
 					  	15 hours/week (Busy) | 12 Units
@@ -197,7 +143,7 @@
 					  	<div class="small-9 columns"></div>
 					  	<div class="small-3 columns">
 					  		<a href="#" class="button" data-open="listingModal">Back</a>
-					  		<a href="add_page_2.html" class="button submit-button">Add to Schedule</a>
+					  		<a href="add_page.html" class="button submit-button">Add to Schedule</a>
 					  	</div>
 					  </div>
 					  <button class="close-button" data-close aria-label="Close reveal" type="button">
@@ -205,7 +151,10 @@
 					  </button>
 					</div>
 
+
 				</div>
+
+				
 
 			</div>
 		</div>
@@ -219,10 +168,90 @@
 
 				</div>
 
+				<!-- New added courses -->
+
+				<div class="added">
+					<p class="added_text">
+						Scotch N' Soda Theatre
+					</p>
+				</div>
+
 				<!-- Button -->
 
 				<div class="adding">
 					<button type="button" class="small expanded hollow button" data-open="listingModalExtra">+ Add Extracurricular</button>
+
+					<div id="listingModalExtra" class="reveal large" data-reveal>
+						<div class="row">
+							<div class="modal-title">
+							  <h2 id="modalTitle" class="subtitle-modal">Add Course</h2>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="small-8 columns">
+							</div>
+								<div class="small-4 columns">
+								<ul class="menu addbar">
+						        	<li class="has-form"><input type="search" placeholder="Search courses"></li>
+						        	<li><a href="add_page.html" class="button">Add</a></li>
+					     		</ul>
+					     	</div>
+						</div>
+						<div class="row table-add">
+							<table>
+							  <thead>
+							    <tr>
+							    	<th width="150"></th>	
+							      	<th>Name</th>
+							      	<th width="200">Type</th>
+							      	<th width="150">Hours</th>
+							      	<th width="150">Status</th>
+							      	<th width="150"></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>Content Goes Here</td>
+							      <td>
+							      	<a data-open="extraModal">
+							      		15-112: Fundamentals of Programming
+							      	</a>
+							      </td>
+							      <td>Class</td>
+							      <td>15 hours/week</td>
+							      <td>Busy</td>
+							      <td>Content Goes Here</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+
+						<div class="row">
+							
+						</div>
+
+					</div>
+
+
+					<div class="reveal large" id="extraModal" data-reveal>
+					  <h2 class="secondary-text modal-title">15-112: Fundamentals of Programming</h2>
+					  <b class="color-code">
+					  	15 hours/week (Busy) | 12 Units
+					  </b>
+					  <p class="modal-desc">	A technical introduction to the fundamentals of programming with an emphasis on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Starting from first principles,we will cover a large subset of the Python programming language, including its standard libraries and programming paradigms. We will also target numerous deployment scenarios, including standalone programs, shell scripts, and web-based applications.</p>
+					  <div class="row">
+					  	<div class="small-9 columns"></div>
+					  	<div class="small-3 columns">
+					  		<a href="#" class="button" data-open="listingModal">Back</a>
+					  		<a href="add_page.html" class="button submit-button">Add to Schedule</a>
+					  	</div>
+					  </div>
+					  <button class="close-button" data-close aria-label="Close reveal" type="button">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -239,7 +268,7 @@
 						<div id="viz" style="text-align:center;margin:auto;"></div>
 					</div>
 					<div class="tabs-panel" id="panel2">
-						<div id="cal-heatmap" class="centralize"></div>
+						<div id="cal-heatmap" class="heatmap-add centralize"></div>
 					</div>
 				</div>
 			</div>
@@ -253,81 +282,40 @@
 					</b>
 					<hr>
 					<div class="row">
-						<div class="small-8 columns">Robotics for Creatives</div>
-						<div class="small-2 columns busy">Busy</div>
-						<div class="small-2 columns">
-							<a href="add_page.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
+						<div class="small-6 columns">
+							<b>
+								15-122 Principle
+							</b>
+						</div>
+
+						<div class="small-3 columns">
+							<p class="color-code">
+								Busy
+							</p>
+						</div>
+
+						<div class="small-3 columns">
+							<a href="add_page2.html">
+								Add
 							</a>
 						</div>
 					</div>
-					<hr>
 					<div class="row">
-						<div class="small-8 columns">Mobile Application Dev iOS</div>
-						<div class="small-2 columns busy">Busy</div>
-						<div class="small-2 columns">
-							<a href="add_page_2.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
-							</a>
+						<div class="small-6 columns">
+							<b>
+								15-151 Great Th
+							</b>
 						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="small-8 columns">Differential & Integral Calcul</div>
-						<div class="small-2 columns medium">Medium</div>
-						<div class="small-2 columns">
-							<a href="add_page_3.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
-							</a>
+
+						<div class="small-3 columns">
+							<p class="color-code">
+								Busy
+							</p>
 						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="small-8 columns">Communication Design</div>
-						<div class="small-2 columns medium">Medium</div>
-						<div class="small-2 columns">
-							<a href="add_page_4.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
-							</a>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="small-8 columns">Negotiation and Conflict</div>
-						<div class="small-2 columns light">Light</div>
-						<div class="small-2 columns">
-							<a href="add_page_5.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
-							</a>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="small-8 columns">Singing for Actors II</div>
-						<div class="small-2 columns light">Light</div>
-						<div class="small-2 columns">
-							<a href="add_page_6.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
-							</a>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="small-8 columns">Broadway Dance Styles</div>
-						<div class="small-2 columns light">Light</div>
-						<div class="small-2 columns">
-							<a href="add_page_7.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
-							</a>
-						</div>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="small-8 columns">Web Application Security</div>
-						<div class="small-2 columns light">Light</div>
-						<div class="small-2 columns">
-							<a href="add_page_3.html">
-								&nbsp&nbsp&nbsp<i class="fi-plus"></i>
+
+						<div class="small-3 columns">
+							<a href="add_page2.html">
+								Add
 							</a>
 						</div>
 					</div>
@@ -354,11 +342,6 @@
   <script src="../public/js/justgage.js"></script>
   <script src="../public/js/d3.min.js"></script>
   <script src="../public/js/cal-heatmap.min.js"></script>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
-  <script src="http://code.highcharts.com/highcharts-more.js"></script>
-  <script src="plot1.js"></script>
-  <script src="plot2.js"></script>
-  <script src="plot3.js"></script>
 
   <script>
     var cal = new CalHeatMap();
@@ -419,19 +402,5 @@
     	}
 
     });
-
-    function drop() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    $(".load").click(function(){
-    	var chart1 = $('#container1').highcharts();
-    	chart1.redraw();
-    	var chart2 = $('#container2').highcharts();
-    	chart2.redraw();
-    	var chart3 = $('#container3').highcharts();
-    	chart3.redraw();
-		});
-
   </script>
  </html>

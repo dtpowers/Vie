@@ -10,117 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   </head>
-
-
-
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="../public/js/raphael-2.1.4.min.js"></script>
-  <script src="../public/js/justgage.js"></script>
-
-  <script>
-
-  	// Old calendar chart
-  	google.charts.load("current", {packages:["calendar"]});
-    google.charts.setOnLoadCallback(drawChart);
-  	function drawChart() {
-      var dataTable = new google.visualization.DataTable();
-      dataTable.addColumn({ type: 'date', id: 'Date' });
-      dataTable.addColumn({ type: 'number', id: 'Hours' });
-      dataTable.addRows([
-        [ new Date(2017, 2, 3), 637 ],
-        [ new Date(2017, 2, 8), 608 ],
-        [ new Date(2017, 2, 13), 629 ],
-        [ new Date(2017, 2, 14), 524 ],
-        [ new Date(2017, 2, 15), 524 ],
-        [ new Date(2017, 2, 16), 608 ],
-        [ new Date(2017, 2, 17), 629 ],
-        [ new Date(2017, 2, 22), 637 ],
-        [ new Date(2017, 2, 24), 524 ],
-        [ new Date(2017, 2, 26), 524 ],
-        [ new Date(2017, 2, 28), 608 ],
-        [ new Date(2017, 2, 30), 629 ],
-        [ new Date(2017, 3, 4), 637 ],
-        [ new Date(2017, 3, 19), 524 ],
-        [ new Date(2017, 3, 20), 624 ],
-        [ new Date(2017, 3, 24), 598 ],
-        [ new Date(2017, 3, 26), 629 ],
-        [ new Date(2017, 4, 4), 577 ],
-        [ new Date(2017, 4, 5), 575 ],
-        [ new Date(2017, 4, 12), 538 ],
-        [ new Date(2017, 4, 13), 529 ],
-        [ new Date(2017, 4, 19), 523 ],
-        [ new Date(2017, 4, 23), 545 ],
-        [ new Date(2017, 4, 24), 586 ],
-        [ new Date(2017, 4, 30), 600 ]
-      ]);
-
-    	var chart = new google.visualization.Calendar(document.getElementById('calendar_div'));
-
-    	var options = {
-	      width: 420,
-	      height: 250,
-	      calendar: {
-			    unusedMonthOutlineColor: {
-			      stroke: 'black',
-			      strokeOpacity: 0.8,
-			      strokeWidth: 0.8
-			    }
-			  }
-	    };
-    	chart.draw(dataTable, options);
-    }
-
-
-		document.addEventListener("DOMContentLoaded", function(event){
-    	var g1 = new JustGage({
-        id: 'g1',
-        value: 70,
-        min: 0,
-        max: 168,
-        //symbol: '%',
-        pointer: true,
-        title: "Average Hours / Week",
-        label: "70 hours",
-        textRenderer: custom,
-        gaugeWidthScale: 0.6,
-        customSectors: [{
-          color: '#00ff00',
-          lo: 50,
-          hi: 100
-        }, {
-          color: '#ff33cc',
-          lo: 0,
-          hi: 50
-        }],
-        counter: true
-      });
-
-      var g2 = new JustGage({
-        id: 'g2',
-        value: 123,
-        min: 0,
-        max: 168,
-        //symbol: '%',
-        pointer: true,
-        title: "Average Hours / week",
-        label: "123 hours",
-        textRenderer: custom,
-        gaugeWidthScale: 0.6,
-        counter: true
-      });
-
-      function custom(val) {
-        if (val < 75) {
-            return '41%';
-        } else if (val > 50) {
-            return '73%';
-        } else if (val === 50) {
-            return 'ideal';
-        }
-    	}
-
-    });
-	</script>
 	<style>
 		#g1, #g2 {
       width:300px; 
@@ -372,17 +261,18 @@
 
 		<div class="small-4 columns white-block">
 			<div class="cards visualizations">
-				<ul class="tabs" id="visuals" data-tabs>
-  					<li class="tabs-title is-active"><a class="tab-text" href="#panel1" aria-selected="true">Weekly Hours</a></li>
-  					<li class="tabs-title"><a class="tab-text" href="#panel2">Monthly Heatmap</a></li>
+				<ul class="tabs round" id="visuals" data-tabs>
+  					<li class="tabs-title is-active"><a class="tab-text round-left" href="#panel1" aria-selected="true">&nbsp&nbsp&nbsp&nbspWeekly Hours&nbsp&nbsp&nbsp&nbsp</a></li>
+  					<li class="tabs-title"><a class="tab-text round-right" href="#panel2">&nbsp&nbsp&nbsp&nbspMonthly Heatmap&nbsp&nbsp&nbsp&nbsp</a></li>
 				</ul>
 
-				<div class="tabs-content" data-tabs-content="visuals">
+				<div class="tabs-content round" data-tabs-content="visuals">
   					<div class="tabs-panel is-active" id="panel1">
-  						<div id="g2"></div>
+  						<div id="g2" style="text-align:center;margin:auto;"></div>
   					</div>
   					<div class="tabs-panel" id="panel2">
   						<p>WINKY FACE</p>
+  						<div id="calendar_div"></div>
   					</div>
   				</div>
 
@@ -395,27 +285,28 @@
 					<b class="secondary-text">
 						Recommended Courses
 					</b>
-				</div>
+					<hr>
+					<div class="row">
+						<div class="small-6 columns">
+							<b>
+								15-122 Principle
+							</b>
+						</div>
 
-				<div class="small-6 columns">
-					<b>
-						15-122 Principle
-					</b>
-				</div>
+						<div class="small-3 columns">
+							<p class="color-code">
+								Busy
+							</p>
+						</div>
 
-				<div class="small-3 columns">
-					<p class="color-code">
-						Busy
-					</p>
-				</div>
-
-				<div class="small-3 columns">
-					<a href="add_page2.html">
-						Add
-					</a>
+						<div class="small-3 columns">
+							<a href="add_page2.html">
+								Add
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-
 			<!-- Submit button -->
 
 			<div class="small-9 columns">
@@ -429,14 +320,65 @@
 
 		</div>
 	</div>
+  </body>
 
 	<script src="../public/js/vendor/jquery.js"></script>
-    <script src="../public/js/vendor/what-input.js"></script>
-    <script src="../public/js/vendor/foundation.js"></script>
-    <script src="../public/js/app.js"></script>
-  	
+	<script src="../public/js/vendor/foundation.js"></script>
+	<script src="../public/js/app.js"></script>
+  <script src="../public/js/raphael-2.1.4.min.js"></script>
+  <script src="../public/js/justgage.js"></script>
+  <script src="../public/js/d3.min.js"></script>
+  <script src="../public/js/cal-heatmap.min.js"></script>
 
-	
+  <script>
+		document.addEventListener("DOMContentLoaded", function(event){
+    	var g1 = new JustGage({
+        id: 'g1',
+        value: 70,
+        min: 0,
+        max: 168,
+        //symbol: '%',
+        pointer: true,
+        title: "Average Hours / Week",
+        label: "70 hours",
+        textRenderer: custom,
+        gaugeWidthScale: 0.6,
+        customSectors: [{
+          color: '#00ff00',
+          lo: 50,
+          hi: 100
+        }, {
+          color: '#ff33cc',
+          lo: 0,
+          hi: 50
+        }],
+        counter: true
+      });
 
-  </body>
+      var g2 = new JustGage({
+        id: 'g2',
+        value: 123,
+        min: 0,
+        max: 168,
+        //symbol: '%',
+        pointer: true,
+        title: "Average Hours / week",
+        label: "123 hours",
+        textRenderer: custom,
+        gaugeWidthScale: 0.6,
+        counter: true
+      });
+
+      function custom(val) {
+        if (val < 75) {
+            return '41%';
+        } else if (val > 50) {
+            return '73%';
+        } else if (val === 50) {
+            return 'ideal';
+        }
+    	}
+
+    });
+	</script>
  </html>

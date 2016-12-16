@@ -37,6 +37,8 @@ app.use(function(req, res) {
   });
 });
 
+$(document).foundation()
+
 app.listen(3000, function() {
   console.log('Ready to start helping people manage their time!');
 });

@@ -5,47 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vie Dashboard</title>
     <link rel="stylesheet" href="../public/css/foundation.css">
+    <link rel="stylesheet" href="../public/css/foundation-icons.css">
+    <link rel="stylesheet" href="../public/css/font-awesome.css">
     <link rel="stylesheet" href="../public/css/app.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/slick.css"/>
     <link rel="stylesheet" href="../public/css/slick-theme.css"/>
+    <link rel="stylesheet" href="../public/css/cal-heatmap.css">
   </head>
 
 	<style>
-    @font-face {
-      font-family: 'AccessibilityFoundicons';
-      src: url('fonts/accessibility_foundicons.eot');
-      src: url('fonts/accessibility_foundicons.eot?#iefix') format('embedded-opentype'),
-           url('fonts/accessibility_foundicons.woff') format('woff'),
-           url('fonts/accessibility_foundicons.ttf') format('truetype'),
-           url('fonts/accessibility_foundicons.svg#accessibilityFoundicons') format('svg');
-      font-weight: normal;
-      font-style: normal;
-    }
-     
-    [class*="foundicon-"] {
-      display: inline;
-      width: auto;
-      height: auto;
-      line-height: inherit;
-      vertical-align: baseline;
-      background-image: none;
-      background-position: 0 0;
-      background-repeat: repeat;
-    }
-     
-    [class*="foundicon-"]:before {
-      font-family: "AccessibilityFoundicons";
-      font-weight: normal;
-      font-style: normal;
-      text-decoration: inherit;
-    }
-
-    .foundicon-adult:before {
-      content: "\f009";
-    }
-
 		#g1, #g2, #g3 {
       width:500px; 
       height:200px;
@@ -66,28 +36,33 @@
   <body>
 
   	<!-- navigation bar -->
-  	<div class="top-bar">
-	  <div class="top-bar-left">
-	    <ul class="dropdown menu" data-dropdown-menu>
-	      <li class="menu-text">
-	      	<img src="../public/images/vie_logo_white.png" alt="Vie Logo">
-	      </li>
-	      <li>
-	        <a class="menu-elements" href="#">All Courses</a>
-	      </li>
-	      <li><a class="menu-elements" href="#">All Extracurriculars</a></li>
-	    </ul>
-	  </div>
-	  <div class="top-bar-right">
-	    <ul class="menu">
-	      <li><input type="search" placeholder="Search"></li>
-	      <li><button type="button" class="button">Search</button></li>
-	      <li>
-	      	<a class="menu-elements" href="#"><i class="foundicon-adult"></i>Eric Yu</a>
-	      </li>
-	    </ul>
-	  </div>
-	</div>
+  	<nav class="top-bar" data-topbar>
+  	  <div class="top-bar-left">
+  	    <ul class="menu">
+  	      <li class="menu-text">
+  	      	<a href="homepage.html">
+              <img src="../public/images/vie_logo_white.png" alt="Vie Logo">
+            </a>
+  	      </li>
+  	      <li>
+  	        <a class="menu-elements" href="#">All Courses</a>
+  	      </li>
+  	      <li><a class="menu-elements" href="#">All Extracurriculars</a></li>
+  	    </ul>
+  	  </div>
+  	  <div class="top-bar-right">
+  	    <ul class="menu">
+  	      <li><input type="search" placeholder="Search for classes"></li>
+  	      <li><button type="button" class="button">Search</button></li>
+  	      <li>
+            <a class="menu-elements" href="#">&nbsp&nbsp<i class="fi-torso"></i><b>&nbsp&nbspMin Yan</b> </a>
+            
+          </li>
+          
+  	</nav>
+
+
+
 
 	<!-- adding elements to schedule -->
 
@@ -107,16 +82,17 @@
             Short Survey
           </b>
           <hr>
-          How was:
+          Time spent on:
           <br><br>
           <li>15-112?</li>
           <br>
           <li>15-251?</li>
           <br>
-          <li>Acting for Non-M?</li>
+          Acting for Non-Majors?
           <br>
           <li>Scotch N Soda?</li>
-          <br><br>
+          <br>
+          <a href="dashboard_page_new.html" class="button submit-button">Submit</a>
         </div>        
       </div>
     </div>
@@ -141,75 +117,53 @@
 		<div class="small-5 columns white-block">
 			<div class="cards">
 				<div class="recommended-text">
-				<b class="secondary-text">
-					Monthly Heatmap
-					<hr>
-				</b>
-			</div>
-
-			<div id="calendar_div"; style="margin-left:20px";></div>
+          <b class="secondary-text">
+            Monthly Heatmap
+            <hr>
+          </b>
+          <div id="cal-heatmap" class="special centralize"></div>
+			  </div>
 			</div>
 		</div>
 	</div>
 
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="../public/js/vendor/jquery.js"></script>s
+  <script src="../public/js/vendor/jquery.js"></script>
+  <script src="../public/js/vendor/foundation.min.js"></script>
   <script src="../public/js/raphael-2.1.4.min.js"></script>
   <script src="../public/js/justgage.js"></script>
   <script src="../public/js/slick.min.js"></script>
+  <script src="../public/js/d3.min.js"></script>
+  <script src="../public/js/cal-heatmap.min.js"></script>
 
   <script>
-    // Old calendar chart
-    google.charts.load("current", {packages:["calendar"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var dataTable = new google.visualization.DataTable();
-      dataTable.addColumn({ type: 'date', id: 'Date' });
-      dataTable.addColumn({ type: 'number', id: 'Hours' });
-      dataTable.addRows([
-        [ new Date(2017, 2, 3), 637 ],
-        [ new Date(2017, 2, 8), 608 ],
-        [ new Date(2017, 2, 13), 629 ],
-        [ new Date(2017, 2, 14), 524 ],
-        [ new Date(2017, 2, 15), 524 ],
-        [ new Date(2017, 2, 16), 608 ],
-        [ new Date(2017, 2, 17), 629 ],
-        [ new Date(2017, 2, 22), 637 ],
-        [ new Date(2017, 2, 24), 524 ],
-        [ new Date(2017, 2, 26), 524 ],
-        [ new Date(2017, 2, 28), 608 ],
-        [ new Date(2017, 2, 30), 629 ],
-        [ new Date(2017, 3, 4), 637 ],
-        [ new Date(2017, 3, 19), 524 ],
-        [ new Date(2017, 3, 20), 624 ],
-        [ new Date(2017, 3, 24), 598 ],
-        [ new Date(2017, 3, 26), 629 ],
-        [ new Date(2017, 4, 4), 577 ],
-        [ new Date(2017, 4, 5), 575 ],
-        [ new Date(2017, 4, 12), 538 ],
-        [ new Date(2017, 4, 13), 529 ],
-        [ new Date(2017, 4, 19), 523 ],
-        [ new Date(2017, 4, 23), 545 ],
-        [ new Date(2017, 4, 24), 586 ],
-        [ new Date(2017, 4, 30), 600 ]
-      ]);
-
-      var chart = new google.visualization.Calendar(document.getElementById('calendar_div'));
-
-      var options = {
-        width: 420,
-        height: 250,
-        calendar: {
-          unusedMonthOutlineColor: {
-            stroke: 'black',
-            strokeOpacity: 0.8,
-            strokeWidth: 0.8
+    var cal = new CalHeatMap();
+      cal.init({
+        data: "analyticstrr.csv",
+        dataType: "csv",
+        start: new Date(2017, 0),
+        domain: "month",
+        subDomain: "day",
+        range: 5,
+        afterLoadData: function(d) {
+          var stats = {};
+          var keys = Object.keys(d[0]);
+          for (var i = 0, total = d.length; i < total; i++ ) {
+            stats[((parseInt(d[i][keys[0]], 10) * 86400) + new Date(2017, 0, 15) / 1000)] = parseInt(d[i][keys[1]]);
           }
-        }
-      };
-      chart.draw(dataTable, options);
-    }
-
+          console.log(stats);
+          return stats;
+        },
+        cellsize: 15,
+        domainGutter: 10,
+        cellradius: 5,
+        cellpadding: 1,
+        cellLabel: {
+          empty: "{date}",
+          filled: "{count} {name} {connector} {date}"
+        },
+        itemName : ["hour", "hours"],
+        scale: [0, 5, 10, 30]
+      });
 
     document.addEventListener("DOMContentLoaded", function(event){
       var g1 = new JustGage({
@@ -270,6 +224,7 @@
         initialSlide: 1,
       });
     });
+
   </script>
 
   </body>
