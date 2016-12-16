@@ -1,0 +1,455 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vie Add Page</title>
+    <link rel="stylesheet" href="../public/css/foundation.css">
+    <link rel="stylesheet" href="../public/css/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  </head>
+
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="../public/js/raphael-2.1.4.min.js"></script>
+  <script src="../public/js/justgage.js"></script>
+
+  <script>
+
+  	// Old calendar chart
+  	google.charts.load("current", {packages:["calendar"]});
+    google.charts.setOnLoadCallback(drawChart);
+  	function drawChart() {
+      var dataTable = new google.visualization.DataTable();
+      dataTable.addColumn({ type: 'date', id: 'Date' });
+      dataTable.addColumn({ type: 'number', id: 'Hours' });
+      dataTable.addRows([
+        [ new Date(2017, 2, 3), 637 ],
+        [ new Date(2017, 2, 8), 608 ],
+        [ new Date(2017, 2, 13), 629 ],
+        [ new Date(2017, 2, 14), 524 ],
+        [ new Date(2017, 2, 15), 524 ],
+        [ new Date(2017, 2, 16), 608 ],
+        [ new Date(2017, 2, 17), 629 ],
+        [ new Date(2017, 2, 22), 637 ],
+        [ new Date(2017, 2, 24), 524 ],
+        [ new Date(2017, 2, 26), 524 ],
+        [ new Date(2017, 2, 28), 608 ],
+        [ new Date(2017, 2, 30), 629 ],
+        [ new Date(2017, 3, 4), 637 ],
+        [ new Date(2017, 3, 19), 524 ],
+        [ new Date(2017, 3, 20), 624 ],
+        [ new Date(2017, 3, 24), 598 ],
+        [ new Date(2017, 3, 26), 629 ],
+        [ new Date(2017, 4, 4), 577 ],
+        [ new Date(2017, 4, 5), 575 ],
+        [ new Date(2017, 4, 12), 538 ],
+        [ new Date(2017, 4, 13), 529 ],
+        [ new Date(2017, 4, 19), 523 ],
+        [ new Date(2017, 4, 23), 545 ],
+        [ new Date(2017, 4, 24), 586 ],
+        [ new Date(2017, 4, 30), 600 ]
+      ]);
+
+    	var chart = new google.visualization.Calendar(document.getElementById('calendar_div'));
+
+    	var options = {
+	      width: 420,
+	      height: 250,
+	      calendar: {
+			    unusedMonthOutlineColor: {
+			      stroke: 'black',
+			      strokeOpacity: 0.8,
+			      strokeWidth: 0.8
+			    }
+			  }
+	    };
+    	chart.draw(dataTable, options);
+    }
+
+
+		document.addEventListener("DOMContentLoaded", function(event){
+    	var g1 = new JustGage({
+        id: 'g1',
+        value: 70,
+        min: 0,
+        max: 168,
+        //symbol: '%',
+        pointer: true,
+        title: "Average Hours / Week",
+        label: "70 hours",
+        textRenderer: custom,
+        gaugeWidthScale: 0.6,
+        customSectors: [{
+          color: '#00ff00',
+          lo: 50,
+          hi: 100
+        }, {
+          color: '#ff33cc',
+          lo: 0,
+          hi: 50
+        }],
+        counter: true
+      });
+
+      var g2 = new JustGage({
+        id: 'g2',
+        value: 123,
+        min: 0,
+        max: 168,
+        //symbol: '%',
+        pointer: true,
+        title: "Average Hours / week",
+        label: "123 hours",
+        textRenderer: custom,
+        gaugeWidthScale: 0.6,
+        counter: true
+      });
+
+      function custom(val) {
+        if (val < 75) {
+            return '41%';
+        } else if (val > 50) {
+            return '73%';
+        } else if (val === 50) {
+            return 'ideal';
+        }
+    	}
+
+    });
+	</script>
+	<style>
+		#g1, #g2 {
+      width:300px; 
+      height:200px;
+    }
+   </style>
+
+  <body>
+
+  	<!-- navigation bar -->
+  	<div class="top-bar">
+	  <div class="top-bar-left">
+	    <ul class="dropdown menu" data-dropdown-menu>
+	      <li class="menu-text">
+	      	<a href="homepage.html">
+	      		<img src="../public/images/vie_logo_white.png" alt="Vie Logo">
+	      	</a>
+	      </li>
+	      <li>
+	        <a class="menu-elements" href="#">All Courses</a>
+	      </li>
+	      <li><a class="menu-elements" href="#">All Extracurriculars</a></li>
+	    </ul>
+	  </div>
+	  <div class="top-bar-right">
+	    <ul class="menu">
+	      <li><input type="search" placeholder="Search"></li>
+	      <li><button type="button" class="button">Search</button></li>
+	      <li>
+	      	<a class="menu-elements" href="#">Login/Signup</a>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+
+	<!-- adding elements to schedule -->
+
+	<div class="row">
+		<div class="welcome">
+			<b>
+				Complete Your Schedule
+			</b>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-4 columns white-block">
+			<div class="cards">
+				<div class="recommended-text">
+					<b class="secondary-text">
+						My Courses
+					</b>
+				</div>
+				<!-- New added courses -->
+				<div class="added">
+					<p class="added_text">
+						15-112:Fundamentals of Programming
+					</p>
+				</div>
+				<div class="added">
+					<p class="added_text">
+						54-191 Acting for Non-Majors
+					</p> 
+				</div>
+
+				<!-- Button -->
+
+				<div class="adding">
+					<a href="#" class="small expanded hollow button" data-open="listingModal">+ Add Course</a>
+
+					<div id="listingModal" class="reveal large" data-reveal>
+						<div class="row">
+							<div class="modal-title">
+							  <h2 id="modalTitle" class="subtitle-modal">Add Course</h2>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="small-8 columns">
+							</div>
+								<div class="small-4 columns">
+								<ul class="menu addbar">
+						        	<li class="has-form"><input type="search" placeholder="Search courses"></li>
+						        	<li><a href="add_page.html" class="button">Add</a></li>
+					     		</ul>
+					     	</div>
+						</div>
+						<div class="row table-add">
+							<table>
+							  <thead>
+							    <tr>
+							    	<th width="150"></th>	
+							      	<th>Name</th>
+							      	<th width="200">Type</th>
+							      	<th width="150">Hours</th>
+							      	<th width="150">Status</th>
+							      	<th width="150"></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>Content Goes Here</td>
+							      <td>
+							      	<a data-open="secondModal">
+							      		15-112: Fundamentals of Programming
+							      	</a>
+							      </td>
+							      <td>Class</td>
+							      <td>15 hours/week</td>
+							      <td>Busy</td>
+							      <td>Content Goes Here</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+
+						<div class="row">
+							
+						</div>
+
+					</div>
+
+
+					<div class="reveal large" id="secondModal" data-reveal>
+					  <h2 class="secondary-text modal-title">15-112: Fundamentals of Programming</h2>
+					  <b class="color-code">
+					  	15 hours/week (Busy) | 12 Units
+					  </b>
+					  <p class="modal-desc">	A technical introduction to the fundamentals of programming with an emphasis on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Starting from first principles,we will cover a large subset of the Python programming language, including its standard libraries and programming paradigms. We will also target numerous deployment scenarios, including standalone programs, shell scripts, and web-based applications.</p>
+					  <div class="row">
+					  	<div class="small-9 columns"></div>
+					  	<div class="small-3 columns">
+					  		<a href="#" class="button" data-open="listingModal">Back</a>
+					  		<a href="add_page.html" class="button submit-button">Add to Schedule</a>
+					  	</div>
+					  </div>
+					  <button class="close-button" data-close aria-label="Close reveal" type="button">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+
+
+				</div>
+
+				
+
+			</div>
+		</div>
+		<div class="small-4 columns white-block">
+			<div class="cards">
+				<div class="recommended-text">
+					<b class="secondary-text">
+						My Extracurriculars
+					</b>
+				</div>
+
+				<!-- New added courses -->
+
+				<div class="added">
+					<p class="added_text">
+						Scotch N' Soda Theatre
+					</p>
+				</div>
+
+				<!-- Button -->
+
+				<div class="adding">
+					<button type="button" class="small expanded hollow button" data-open="listingModalExtra">+ Add Extracurricular</button>
+
+					<div id="listingModalExtra" class="reveal large" data-reveal>
+						<div class="row">
+							<div class="modal-title">
+							  <h2 id="modalTitle" class="subtitle-modal">Add Course</h2>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="small-8 columns">
+							</div>
+								<div class="small-4 columns">
+								<ul class="menu addbar">
+						        	<li class="has-form"><input type="search" placeholder="Search courses"></li>
+						        	<li><a href="add_page.html" class="button">Add</a></li>
+					     		</ul>
+					     	</div>
+						</div>
+						<div class="row table-add">
+							<table>
+							  <thead>
+							    <tr>
+							    	<th width="150"></th>	
+							      	<th>Name</th>
+							      	<th width="200">Type</th>
+							      	<th width="150">Hours</th>
+							      	<th width="150">Status</th>
+							      	<th width="150"></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>Content Goes Here</td>
+							      <td>
+							      	<a data-open="extraModal">
+							      		15-112: Fundamentals of Programming
+							      	</a>
+							      </td>
+							      <td>Class</td>
+							      <td>15 hours/week</td>
+							      <td>Busy</td>
+							      <td>Content Goes Here</td>
+							    </tr>
+							  </tbody>
+							</table>
+						</div>
+
+						<div class="row">
+							
+						</div>
+
+					</div>
+
+
+					<div class="reveal large" id="extraModal" data-reveal>
+					  <h2 class="secondary-text modal-title">15-112: Fundamentals of Programming</h2>
+					  <b class="color-code">
+					  	15 hours/week (Busy) | 12 Units
+					  </b>
+					  <p class="modal-desc">	A technical introduction to the fundamentals of programming with an emphasis on producing clear, robust, and reasonably efficient code using top-down design, informal analysis, and effective testing and debugging. Starting from first principles,we will cover a large subset of the Python programming language, including its standard libraries and programming paradigms. We will also target numerous deployment scenarios, including standalone programs, shell scripts, and web-based applications.</p>
+					  <div class="row">
+					  	<div class="small-9 columns"></div>
+					  	<div class="small-3 columns">
+					  		<a href="#" class="button" data-open="listingModal">Back</a>
+					  		<a href="add_page.html" class="button submit-button">Add to Schedule</a>
+					  	</div>
+					  </div>
+					  <button class="close-button" data-close aria-label="Close reveal" type="button">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="small-4 columns white-block">
+			<div class="cards visualizations">
+				<ul class="tabs" id="visuals" data-tabs>
+  					<li class="tabs-title is-active"><a class="tab-text" href="#panel1" aria-selected="true">Weekly Hours</a></li>
+  					<li class="tabs-title"><a class="tab-text" href="#panel2">Monthly Heatmap</a></li>
+				</ul>
+
+				<div class="tabs-content" data-tabs-content="visuals">
+  					<div class="tabs-panel is-active" id="panel1">
+  						<div id="g1"></div>
+  					</div>
+  					<div class="tabs-panel" id="panel2">
+  						<p>WINKY FACE</p>
+  					</div>
+  				</div>
+
+			</div>
+
+			<!--Recommended Courses/Extracurriculars -->
+
+			<div class="cards visualizations">
+				<div class="recommended-text">
+					<b class="secondary-text">
+						Recommended Courses
+					</b>
+				</div>
+
+				<div class="small-6 columns">
+					<b>
+						15-122 Principle
+					</b>
+				</div>
+
+				<div class="small-3 columns">
+					<p class="color-code">
+						Busy
+					</p>
+				</div>
+
+				<div class="small-3 columns">
+					<a href="add_page2.html">
+						Add
+					</a>
+				</div>
+
+				<div class="small-6 columns">
+					<b>
+						15-151 Great Th
+					</b>
+				</div>
+
+				<div class="small-3 columns">
+					<p class="color-code">
+						Busy
+					</p>
+				</div>
+
+				<div class="small-3 columns">
+					<a href="add_page2.html">
+						Add
+					</a>
+				</div>
+
+			</div>
+
+			<!-- Submit button -->
+
+			<div class="small-9 columns">
+			</div>
+
+			<div class="small-3 columns">
+				<a role="button" aria-label="submit form" href="dashboard_page.html" class="button radius submit-button">Submit</a>
+			</div>
+
+
+
+		</div>
+	</div>
+
+	<script src="../public/js/vendor/jquery.js"></script>
+    <script src="../public/js/vendor/what-input.js"></script>
+    <script src="../public/js/vendor/foundation.js"></script>
+    <script src="../public/js/app.js"></script>
+  	
+
+	
+
+  </body>
+ </html>
