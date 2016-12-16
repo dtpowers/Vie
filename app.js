@@ -23,7 +23,8 @@ fs.readdirSync('./routes').forEach(function(file) {
 });
 
 
-
+// Handle static files
+app.use(express.static(__dirname + '/public'));
 
 // Catch any routes not already handed with an error message
 app.use(function(req, res) {
