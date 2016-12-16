@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vie Add Page</title>
     <link rel="stylesheet" href="../public/css/foundation.css">
+    <link rel="stylesheet" href="../public/css/foundation-icons.css">
     <link rel="stylesheet" href="../public/css/app.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/font-awesome.css">
   </head>
+
+
+	<style>
+    .fi-plus {
+      color: #2199e8;
+    }
+   </style>
+
   <body>
   	<div class="top-bar">
 	  <div class="top-bar-left">
-	    <ul class="dropdown menu" data-dropdown-menu>
+	    <ul class="menu">
 	      <li class="menu-text">
 	      	<a href="homepage.html">
 	      		<img src="../public/images/vie_logo_white.png" alt="Vie Logo">
@@ -30,8 +40,31 @@
 	      <li><input type="search" placeholder="Search"></li>
 	      <li><button type="button" class="button">Search</button></li>
 	      <li>
-	      	<a class="menu-elements" href="#">Login/Signup</a>
+	      	<a class="menu-elements loginbtn" onclick="drop()" href="#">&nbsp&nbsp<i class="fi-unlock"></i>&nbsp<b>Login</b> </a>
 	      </li>
+	      <div class="dropdown">
+            <div id="myDropdown" class="dropdown-content">
+              <ul id="login-dp">
+                <form class="form">
+                  <div class="form-group">
+                    <input type="email" style="display: block; margin: auto;" placeholder="andrew ID"/>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" style="display: block; margin: auto;" placeholder="password"/>
+                  </div>
+                  <div class="social-buttons">
+                    or login via <br>
+                    <a class="button button-fb" style="font-family:Lucida Grande;"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+                    <a class="button button-goog" style="font-family:Lucida Grande; font-weight:bold;"><i class="fa fa-fw fa-google-plus"></i> &nbspGoogle </a>
+                  </div>
+                </form>
+                <div class="bottom text-center">
+                  New here ? <a href="#"><b>Join Us</b></a>
+                </div>
+                <a type="submit" class="button small-12" style="float:right; margin-bottom:14px;" href="dashboard_page_new.html">Sign in!</a>
+              </ul>
+            </div>
+          </div>
 	    </ul>
 	  </div>
 	</div>
@@ -47,6 +80,7 @@
 				How many hours are in your day?
 			</p>
 		</div>
+		<hr>
 		<div class="welcome">
 			<b>
 				Add a Course/Extracurricular
@@ -59,38 +93,70 @@
 		</div>
 	</div>
 	<div class="row">
-  		<div class="small-3 columns">   </div>
+  		<div class="small-4 columns">   </div>
   		<div class="small-6 small-centered columns">
   			<ul class="menu addbar">
 	        	<li class="has-form"><input type="search" placeholder="Type in a course number, course name, club name, etc."></li>
 	        	<li><a href="add_page.html" class="button">Add</a></li>
      		</ul>
   		</div>
-  		<div class="small-3 columns">   </div>
+  		<div class="small-2 columns">   </div>
 	</div>
+	<br><br>
 
 	<div class="row">
-		<div class="small-3 columns"></div>
+		<div class="small-4 columns"></div>
 		<div class="small-6 small-centered columns white-block">
 			<div class="cards">
 				<div class="recommended-text">
 					<b class="secondary-text">What's Popular Right Now</b>
 					<hr>
 					<div class="row">
-  						<div class="small-8 columns">15-112: Fundamentals of Programming</div>
-  						<div class="small-4 columns busy">
-  							Busy (15 hrs/wk)
+  						<div class="small-7 columns">54-191: Acting for Non-Majors</div>
+  						<div class="small-5 columns light">
+  							Light (4 hrs/wk)&nbsp&nbsp&nbsp&nbsp<i class="fi-plus"></i>
   						</div>
 					</div>
-
-						
+					<hr>
+					<div class="row">
+  						<div class="small-7 columns">15-112: Fundamentals of Programming</div>
+  						<div class="small-5 columns busy">
+  							Busy (15 hrs/wk)&nbsp&nbsp&nbsp&nbsp<i class="fi-plus"></i>
+  						</div>
+					</div>
+					<hr>
+					<div class="row">
+  						<div class="small-7 columns">67-327: Web Application Security</div>
+  						<div class="small-5 columns light">
+  							Light (7 hrs/wk)&nbsp&nbsp&nbsp&nbsp<i class="fi-plus"></i>
+  						</div>
+					</div>
+					<hr>
+					<div class="row">
+  						<div class="small-7 columns">21-120: Differential & Integral Calculus</div>
+  						<div class="small-5 columns medium">
+  							Medium (10 hrs/wk)&nbsp&nbsp&nbsp&nbsp<i class="fi-plus"></i>
+  						</div>
+					</div>
+					<hr>
+					<div class="row">
+  						<div class="small-7 columns">67-442: Mobile Application Dev in iOS</div>
+  						<div class="small-5 columns busy">
+  							Busy (13 hrs/wk)&nbsp&nbsp&nbsp&nbsp<i class="fi-plus"></i>
+  						</div>
+					</div>
 				</div>
 
 			</div>
 		</div>
 
-		<div class="small-3 columns"></div>
+		<div class="small-2 columns"></div>
 	</div>
+	<script>
 
+    function drop() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+	</script>
   </body>
  </html>
